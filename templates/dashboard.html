@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Kanban</title>
+<style>
+    .fa {
+  padding: 0px;
+  font-size: 70px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 90%;
+  background-color: #16A596;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+  margin-top:1%;
+  margin-bottom:0%;
+}
+.b {
+  margin-top: 0;
+  margin-left: 80%;
+  margin-right:20px;
+  font-family: Arial, Helvetica, sans-serif;}
+.p {margin-right: 300px;
+margin-left: 400px;
+margin-top:5%;
+font-size: 25px;}
+
+.r {margin-right: 500px;
+margin-left: 622px;
+margin-top:1%;
+font-size: 20px;}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  cursor:default;
+}
+
+.topnav a {
+  float: left;
+  color: #16A596;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.split:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split {
+  float: right;
+  background-color: #16A596;
+  color: white;
+}
+.c{text-align : center;
+font-family: fantasy;}
+</style>
+</head>
+<body style = 'background-color: white'>
+
+<div class="topnav">
+  <a class="active" href="#home" style = 'font-size:20px';>Kanban</a>
+  <a href="/logout" class="split ">Logout</a>
+  <a href="/summary/{{ users['user_id'] }}" class="split ">Summary</a>
+  
+</div>
+    <div>
+    <h2 class ='c' style="color:#16A596">Welcome {{ users["user_name"] }},</h2>
+    <div><p class ='p'> It looks you don't have anything in your board right now </p></div>
+    <a href='/list/{{ users["user_id"] }}' class="fa"> + </a>
+    <p class = 'r' style ='color:#16A596'>Add list</p>
+    <p style = 'text-align: center; font-size: 20px;'>To lighten your stress of tracking any task</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+    font-family: 'Roboto', sans-serif!important;
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+.mainscreen
+{
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+    background-color: white;
+    color:#16A596;
+}
+
+.card {
+	width: 25rem;
+    margin: auto;
+    background: white;
+    position:center;
+    align-self: center;
+    top: 20rem;
+    border-radius: 1.5rem;
+    box-shadow: 4px 3px 20px #16A596;
+    display:flex;
+    flex-direction: row;
+    
+}
+
+
+
+
+
+.side {
+    background-color: #ffffff;
+	width: 35rem;
+	border-bottom-right-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    padding: 1rem 2rem 3rem 3rem;
+}
+
+p{
+    display:block;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: .8rem 0;
+}
+
+.inputbox
+{
+    color:#f1c1c1;
+	width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1.5px solid #ccc;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    font-family: 'Roboto', sans-serif;
+    color: #615a5a;
+    font-size: 1.1rem;
+    font-weight: 500;
+  outline:none;
+}
+
+.expcvv {
+    display:flex;
+    justify-content: space-between;
+    padding-top: 0.6rem;
+}
+
+.expcvv_text{
+    padding-right: 1rem;
+}
+.expcvv_text2{
+    padding:0 1rem;
+}
+
+.button{
+    background: linear-gradient(
+135deg
+, white 0%,#16A596 100%);
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    width:100%;
+    letter-spacing: .11rem;
+    outline:none;
+}
+
+.button:hover
+{
+	transform: scale(1.05) translateY(-3px);
+    box-shadow: 3px 3px 6px #38373785;
+}
+
+
+
+</style>
+</head>
+<body>
+    <div class="mainscreen">
+        <div style="text-align:center;margin-top: 30px;font-size: larger;font-family: fantasy;">{{users['user_name']}},here you can update your {{card['c_name']}} card</div>
+          <div class="card">
+            <div class="leftside">
+              
+            </div>
+            <div class="side">
+              <form action="/card/{{ card['card_id'] }}/update" method ="post">
+                <h1>Card</h1>
+                <label>List Name </label>
+                <br>
+                
+
+                
+                    <select class="inputbox" name="lname" id="lname">
+                        {% for list in lists %}
+                        <option value="{{list['list_id']}}">{{list['l_name']}}</option>
+                        <!-- <option value="">Hitesh</option>
+                        <option value="">Puru</option> -->
+                        {% endfor %}
+                    </select>
+                
+                
+                <label>Task</label>
+                <input type="text" class="inputbox" name="task" placeholder="{{card['c_name']}}" required />
+                <label>Description</label>
+                <input type="text" class="inputbox" name="desc"  placeholder="{{card['c_description']}}" required />
+    
+                <p>Progress</p>
+                    <div class="'inputbox" id = 'card_type'>
+                
+                        <input type="radio" name="progress" value="progress_1" {{'checked' if 'Completed' in p}} required/>
+                        <label>Completed</label>
+                
+                        <input type="radio" name="progress" value="progress_2" {{'checked' if "In Progress" in p}} required/>
+                        <label>In Progress</label>
+                
+                        <input type="radio" name="progress" value="progress_3" {{'checked' if 'Not Started' in p}} required/>
+                        <label>Not Started</label>
+                
+                      </div>
+                </select> 
+    <div class="expcvv">
+                <p class="expcvv_text">Deadline</p>
+                <input type="date" class="inputbox" name="deadline" id="exp_date"  placeholder="{{card['deadline']}}" required />
+            </div>
+                <p></p>
+                <button type="submit" class="button">Update</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      
+    
+    
+</body>

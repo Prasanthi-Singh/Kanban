@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+      
+      .topnav a {
+        float: left;
+        color: #16A596;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+      
+      .topnav a.split:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      
+      /* Create a right-aligned (split) link inside the navigation bar */
+      .topnav a.split {
+        float: right;
+        background-color: #16A596;
+        color: white;
+      }
+      .c{text-align : center;
+      font-family: fantasy;}
+
+.a{background-color: rgb(247, 200, 200);
+width: 250px;
+border: 3px solid rgb(8, 10, 13);
+height:12px;
+padding: 10px;
+margin-top: 5px;
+margin-left: 5%;
+box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+text-align: center;
+font-size :larger}
+
+.fa {
+  padding: 0px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 90%;
+  background-color: rgb(247, 200, 200);
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+  margin-top:10%;
+  margin-bottom:0%;
+  border:3px solid black;
+}
+
+.d{background-color: coral;
+width: 300px;
+border: 3px solid rgb(10, 12, 15);
+height:100%;
+padding: 20px;
+margin: 20px;
+box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;}
+
+.card{background-color: rgb(255, 198, 177);
+width: 150px;
+border: 3px solid rgb(10, 11, 12);
+height:50px;
+padding: 10px;
+margin-top: 15px;
+margin-left: 20%;
+box-shadow: rgb(247, 213, 184) 5px 5px, rgb(251, 217, 187) 10px 10px,rgb(253, 220, 190) 15px 15px;
+text-align: center;
+font-size : larger;
+font-family:fantasy;}
+.next{margin-left:10%;
+display:flex}
+
+@import 'https://fonts.googleapis.com/css?family=Dosis|Roboto:300,400';
+
+.container{
+	position:absolute;
+	width: auto;
+	height:auto;
+	top: calc(22%);
+	left: calc(50% - 160px);
+}
+
+form {
+	position: absolute;
+	text-align: center;
+	background: #fff;
+	width: 310px;
+	height: 470px;
+	border-radius: 5px;
+	padding: 30px 20px 0 20px;
+	box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+	box-sizing: border-box;
+}
+
+
+
+
+input,
+button{
+	outline: none; 
+}
+
+
+
+button.form-btn {
+	position: absolute;
+	width: 50%;
+	height: 50px;
+	bottom: 0;
+	border: 0;
+	font-family: 'Dosis';
+	font-size: 24px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+
+
+button.form-btn.dx {
+	right: 0;
+  left:25%;
+	background-color: #16A596;
+	color: #fff;
+}
+button.form-btn:hover{background-color: grey;
+color:black;}
+
+input {
+	border: none;
+	border-bottom: 1px solid #96e7df;
+	width: 85%;
+	font-family: 'Roboto';
+	color: #16A596;
+	text-align: center;
+	font-size: 21px;
+	font-weight:100;
+	margin-bottom:25px;
+}
+
+::-webkit-input-placeholder {
+   color: #16A596;
+	font-family: 'Roboto';
+	font-weight:100;
+}
+
+
+
+
+.box{
+		z-index: 1;
+		transform: perspective(100px) translate3d(100px, 0px, -30px);
+		opacity: 0.5;
+}
+
+.signUp {
+	z-index: 2;
+}
+
+
+
+
+
+</style>
+      
+
+</head>
+<body style = "background-color: white;">
+    <div class="topnav">
+        <a class="active" href="#home" style = 'font-size: 20px';'>Kanban</a>
+        <a href="#about" class="split ">Logout</a>
+        <a href="#about" class="split ">Summary</a>
+        <a href="#logout" class = 'split'>Dashboard</a>
+      </div>
+    <h3 class="c">{{ users["user_name"] }}, here you can update your list </h3>
+    <div class="container">
+      <form class="signUp" action="/list/{{ list['list_id'] }}/update" method = 'post'>
+        <h3 style="color:rgb(105, 47, 47);font-size:30px">Add List</h3>
+        </p>
+        <input class="w100" type="text" placeholder="Name of the List" name = 'name'>
+        <input type="text" placeholder="Description" name = 'description'>
+        <input type="text" placeholder="" reqired />
+        <input type="text" placeholder="" reqired />
+        <button class="form-btn dx" type="submit">Update</button>
+      </form>
+      <form class="box">
+        
+      </form>
+    </div>
+    </div>
+</body>
+</html>
